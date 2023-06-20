@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import SiderLayout from "./Sider";
 import { investigationitems } from "../utiles/investigationSidebar";
 import {  useSelector } from "react-redux"; 
+import { getAccessToken } from "../utiles/aauthToken";
 
 
 const { Header, Content } = Layout;
@@ -14,12 +15,12 @@ const InvestigationLayout = () => {
     const { 
         token: { colorBgContainer }, 
       } = theme?.useToken();
-      if (!data) {
+      if (data && getAccessToken()) {   
     return (
       <Layout className="min-h-screen brandpage mainlayout">  
         <div>
           <SiderLayout item={investigationitems}/>
-        </div>
+        </div> 
         <Layout className="site-layout pl-50 bg-bg">
         <Header
             className="flex items-center justify-center"

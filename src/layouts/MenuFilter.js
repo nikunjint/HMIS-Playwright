@@ -30,7 +30,7 @@ function MenuFilter({ filterData, onFilterData, collapsed, searchcollapse }) {
         }
         className={
           !collapsed
-            ? "flex-half bg-sky-100 text-dark searchsec mb-0 ml-1 mr-7 h-fit rounded-sm bg-sky px-0 pb-[0.5px] pl-2 pt-[3px] "
+            ? "flex-half bg-sky-100 text-dark searchsec mb-0 ml-1 mr-7 h-fit bg-sky px-0 pb-[0.5px] pl-2 pt-[3px] rounded-[999px] w-[95%] "
             : "searchsec mb-2 ml-1 rounded-sm pb-[0.5px] pt-[3px]"
         }
       />

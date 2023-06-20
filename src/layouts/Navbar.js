@@ -4,7 +4,7 @@ import profilepic from "../assets/profilepic.png";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../services/auth/authSlice.js";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { Badge, Button, Dropdown, Space } from "antd";
 import {
@@ -17,6 +17,7 @@ import {
 import Common from "../components/common";
 import { rightsiderData } from "../utiles/rightsider";
 import DashBoardSearch from "./DashBoardSearch";
+import { getAccessToken } from "../utiles/aauthToken";
 
 function Navbar({ speaker,setFilterData}) {
   const [open, setOpen] = React.useState(false);
@@ -40,6 +41,7 @@ function Navbar({ speaker,setFilterData}) {
  
 
   const data = useSelector((state) => state.auth.userInfo?.data?.user);
+  const data_accesstoken = useSelector((state) => state.auth.userInfo?.data?.access_token); 
   const items = [
     {
       key: "1",
@@ -49,7 +51,7 @@ function Navbar({ speaker,setFilterData}) {
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          {data?.username} 
+          {data?.username}  
         </a>
       ),
     },
@@ -68,7 +70,7 @@ function Navbar({ speaker,setFilterData}) {
   ];
 
   
-  if (!data) {
+  if (data && getAccessToken()) {   
   return (
     <div className="grid grid-cols-3 items-center px-3 w-full">
       <div className="opacity-0">
@@ -115,7 +117,7 @@ function Navbar({ speaker,setFilterData}) {
                 <div className="flex items-center">
                   <img src={profilepic} alt="..." className="h-6 mr-2" />
                   <div className="text-dark ml-3 flex flex-col text-sm font-semibold leading-normal">
-                    {data?.name}
+                
                     <div className="text-gray-300 -ml-2 text-xs lg:text-sm font-Poppins font-semibold flex items-center">
                       Doctor's Panel
                       <HiChevronDown size={15} />
@@ -151,7 +153,7 @@ function Navbar({ speaker,setFilterData}) {
     </div>
   );
 }
-return null;
+return <Navigate to="/login" />;
 }
 
 export default memo(Navbar);
