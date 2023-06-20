@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+
+@layer base {
+  h1 {
+    @apply text-2xl; 
+  }
+  h3, input, form label, select{
+    @apply text-lg;
+  }
+
+}
+@layer base { 
+  :root{
+    --text-color:#001529;
+  }
+  .thim-red{
+    --text-color:white;
+    --bg-color:#d4380d;
+  }
+  .thim-green{
+    --text-color:#d4380d; 
+    --bg-color:green;
+  }
+  .thim-main{
+    --text-color:white;
+    --bg-color:#001529;
+    
+  }
+}
+ 
+@layer components { 
+  .btn {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+  }
+  .ant-tag {
+    @apply  text-sm font-medium py-1 px-4 rounded-md font-Poppins;
+  }
+
+  .ant-tag-green {
+    @apply  text-green;
+  }
+  .ant-tag-geekblue {
+    @apply  text-geekblue;
+  }
+  .ant-tag-volcano {
+    @apply text-volcano;
+  }
+  .btn-theme {
+    @apply bg-theme btn;
+  }
+  .btn-secondary {
+    @apply bg-secondary;
+  }
+
+  .text-white {
+    color: white;
+  }
+  .text-green {
+    color: green;
+  }
+  .text-geekblue {
+    color: #1d39c4;
+  }
+  .text-volcano { 
+    color: #d4380d;
+  }
+
+  .text-tiny{
+    font-size: 14px
+  }
+
+  .flex-half{
+    flex: 0.5
+  }
+
+  .flexnine{
+    flex: 0.9; 
+  }
+
+  .grid-initial{
+    grid-template-columns: initial !important;
+  }
+
+  .justify-initial{
+    justify-content: initial !important;
+  }
+ 
+  
+  .position-initial{
+    position: initial
+  }
+
+  .swiper-backface-hidden .swiper-slide {
+    height: 100px !important;
+} 
+
+
+
+
+}
+
+@import 'tailwindcss/utilities';
+
+.sider{
+  @apply min-w-[50px] max-w-[50px]
+}
+
+

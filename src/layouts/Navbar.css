@@ -1,0 +1,43 @@
+.MuiPopover-paper{
+    min-width: 150px !important;
+    max-width: calc(100% - 150px) !important;
+  }
+
+.MuiButton-contained{
+    background-color: var(--primary-70) !important;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.fs-15{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.pl-80{
+    padding-left: 80px;
+}
+
+.shadow-sm {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);    background-color: white;
+}
+
+.regbuttons{
+    position: absolute;
+    z-index: 999;
+    right: 300px;
+    top: 1.8%;
+}
+
+.regbuttons button:not(:last-child){
+    margin-right: 10px;
+}
+
