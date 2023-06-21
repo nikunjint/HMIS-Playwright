@@ -912,7 +912,7 @@ const AntSwitch = (props) => {
     <FormItem {...props} localrules={localrules}>
       <div className="flex items-center gap-1">
         <div>
-          <Switch onChange={onChangeSwitch} checked={value} size="small" />
+          <Switch onChange={onChangeSwitch} checked={value} size="small" defaultChecked={props.defaultChecked}/>
         </div>
         <div className="mt-1 font-Poppins text-sm font-medium text-[#4C4C4C]">
           {props.label}

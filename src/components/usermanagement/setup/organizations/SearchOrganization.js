@@ -12,8 +12,8 @@ const SearchOrganizationList = ({ data, onFilterData }) => {
         (item.code &&
           item.code.toLowerCase().includes(value.toLowerCase())) ||
         (item.address && item.address.toLowerCase().includes(value.toLowerCase())) ||
-        (item.mobileno &&
-          item.mobileno.toLowerCase().includes(value.toLowerCase())) ||
+        (item.phoneno &&
+          item.phoneno.toLowerCase().includes(value.toLowerCase())) ||
         (item.email &&
           item.email.toLowerCase().includes(value.toLowerCase())) 
         

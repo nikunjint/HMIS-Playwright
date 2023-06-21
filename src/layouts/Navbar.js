@@ -36,12 +36,7 @@ function Navbar({ speaker,setFilterData}) {
     navigate("/login");
   };
 
-
-
- 
-
   const data = useSelector((state) => state.auth.userInfo?.data?.user);
-  const data_accesstoken = useSelector((state) => state.auth.userInfo?.data?.access_token); 
   const items = [
     {
       key: "1",
