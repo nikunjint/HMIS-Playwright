@@ -37,7 +37,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
         <Common.Cards>
           <div className="m-auto grid w-full items-center gap-x-4 md:grid-cols-12">
             {
-              !open?.edit &&(
+              (!open?.edit || open.add )&&(
                 <div className="col-span-4">
                 <Common.Inputs
                   name="global_id"

@@ -26,7 +26,7 @@ const queryClient = new QueryClient({
     },
     mutations: {
       onError: (err) =>
-        Common.notifications("Error", `${err?.message}`, "error"),
+        Common.notifications("Error", `${err?.response?.data?.message}`, "error"),
     },
   },
 });

@@ -53,7 +53,21 @@ const SubOrganizationList = () => {
     },
     {
       title: "Phone",
-      dataIndex: "mobileNo",
+      dataIndex: "phone_no",
+      render:(text,record)=>(
+        <div>
+          {text && text?.slice(0,10)}
+        </div>
+      )
+    },
+    {
+      title: "Mobile",
+      dataIndex: "mobile_no",
+      render:(text,record)=>(
+        <div>
+          {text && text?.slice(0,10)}
+        </div>
+      )
     },
     { title: "Code", dataIndex: "code" },
     { title: "Email", dataIndex: "email" },
