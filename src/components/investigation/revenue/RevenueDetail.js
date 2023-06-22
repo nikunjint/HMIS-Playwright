@@ -2,7 +2,7 @@ import React from "react";
 import { Statistic } from "antd";
 import chartup from "../../../../src/assets/chartup.png";
 import chartdown from "../../../../src/assets/chartdown.png";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 const items = [
   {
     key: "1",
@@ -69,7 +69,7 @@ function RevenueDetail() {
             <div>
               <div
                 className={`font-Poppins text-sm font-normal ${
-                  item.image == chartup ? "text-[#2CB257]" : "text-red"
+                  item.image === chartup ? "text-[#2CB257]" : "text-red"
                 }`}
               >
                 16.05%
