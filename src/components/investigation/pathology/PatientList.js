@@ -100,13 +100,12 @@ const PatientList = () => {
               </div>
             </div>
           </div>
-          <div className="mt-1 patient_list">
+          <div className="mt-1 patient_list pathologypatientlist">
             <Common.Tables
               data={filterData}
               columns={columns}
               X={"1500px"}
               spinning={false}
-              size="medium"
             />
           </div>
         </Common.Cards>

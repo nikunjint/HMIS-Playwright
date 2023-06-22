@@ -84,8 +84,8 @@ const OrganizationList = () => {
           size={"large"}
         />
       </div>
-      <div>
-        <div className="flex items-center justify-between bg-[white] px-4 pb-2 pt-2">
+      <div className="lg:item-center mx-auto p-2  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
+        <div className="flex items-center justify-between bg-[white]">
           <div className="flex items-center gap-6">
             <div>
               <SearchOrganizationList data={data?.data} onFilterData={OnFilterData} />
@@ -130,7 +130,7 @@ const OrganizationList = () => {
             </div>
           </div>
         </div>
-        <div classname="patientlist">
+        <div classname="patientlist patient_list">
           <Common.Tables
             data={filterData}
             columns={columns}

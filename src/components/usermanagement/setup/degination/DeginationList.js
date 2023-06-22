@@ -63,15 +63,15 @@ const DeginationList = () => {
     <div classname="grid gap-3">
       <div>
         <Common.Header
-          currentmodule="Degination"
+          currentmodule="Designation"
           mainmodule="User Management"
           name="Go Back"
           to="/"
-          size={"large"}
+          
         />
       </div>
-      <div>
-      <div className="flex items-center justify-between bg-[white] px-4 pt-2 pb-2">
+      <div className="lg:item-center mx-auto p-2  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
+      <div className="flex items-center justify-between bg-[white]">
         <div className="flex items-center gap-6">
           <div>
             <SearchDeginationList
@@ -83,8 +83,8 @@ const DeginationList = () => {
        
         <div className="item-center flex gap-4">
         <div>
-          <Common.Buttons className="btn text-white mb-1 ml-auto flex items-center justify-center bg-main" onClick={()=>setOpen({open:true,data:[],title:"Add Degination",edit:true})}>
-            Add Degination
+          <Common.Buttons className="btn text-white mb-1 ml-auto flex items-center justify-center bg-main" onClick={()=>setOpen({open:true,data:[],title:"Add Designation",edit:true})}>
+            Add Designation
           </Common.Buttons>
         </div>
           <div className=" flex items-center font-Poppins text-sm font-medium text-[#4C4C4C]">
@@ -108,7 +108,7 @@ const DeginationList = () => {
           </div>
         </div>
       </div>
-      <div classname="patientlist">
+      <div classname="patientlist patient_list">
       <Common.Tables
           data={filterData}
           columns={columns}

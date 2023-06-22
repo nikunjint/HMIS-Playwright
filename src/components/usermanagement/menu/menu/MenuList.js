@@ -75,14 +75,14 @@ const Menu = () => {
       <div>
         <Common.Header
           currentmodule="Menu"
-          mainmodule="User Management"
+          mainmodule="User Management" 
           name="Go Back"
           to="/"
           size={"large"}
         />
       </div>
-      <div>
-      <div className="flex items-center justify-between bg-[white] px-4 pt-2 pb-2">
+      <div className="lg:item-center mx-auto p-2  w-full rounded-[10px] border-[4px] border-[white] bg-[white] shadow-bottom shadow-gray">
+      <div className="flex items-center justify-between bg-[white]">
         <div className="flex items-center gap-6">
           <div>
             <SearchMenu
@@ -130,7 +130,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="patientlist">
+      <div className="patientlist patient_list">
       <Common.Tables
           data={filterData}
           columns={columns} 
@@ -139,10 +139,11 @@ const Menu = () => {
           expandable
           spinning={false}
           pageSize={queryParams.limit}
-          total={11}
+          total={11} 
           current={queryParams.page}
           setQueryParams={(e) => setQueryParams(e)}
         />
+        
       </div>
       </div>
       {
