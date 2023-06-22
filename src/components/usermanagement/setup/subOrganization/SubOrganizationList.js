@@ -73,10 +73,10 @@ const SubOrganizationList = () => {
     { title: "Email", dataIndex: "email" },
     {
       title: "Status",
-      dataIndex:'isDefault',
+      dataIndex:'is_default',
       render: (text) => (
         <div>
-          <Switch defaultChecked={text === 1?true:false} value={text}>Status</Switch>
+          <Switch defaultChecked={text === 1?true:false} value={text} checked={text ===1?true:false}>Status</Switch>
         </div>
       ),
     },
