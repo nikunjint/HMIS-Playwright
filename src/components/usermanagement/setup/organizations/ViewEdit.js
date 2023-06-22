@@ -19,7 +19,11 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
       editOrganization.mutate({id:open?.data?.id,payload:values})
     }
     form.resetFields()
-    setOpen({ open: false })
+    if(!editOrganization.isLoading || !addOrganization.isLoading ){
+      setOpen({ open: false })
+
+    }
+  
   };
   return (
     <Common.AntModal open={open} setOpen={setOpen}>
@@ -158,7 +162,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
             <Common.Buttons
               size={"tiny"}
               htmlType="submit"
-              loading={addOrganization.isLoading}
+              loading={addOrganization.isLoading || editOrganization.isLoading}
               className="my-button btn-primary text-uppercase flex items-center justify-center bg-[#0d2f66] text-[white]"
             >
               Save

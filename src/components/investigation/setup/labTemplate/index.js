@@ -65,8 +65,8 @@ const Index = () => {
       />
 
 
-
-      <div className="flex items-center justify-between bg-[#fff] px-4 pt-2 mt-2 pb-2 rounded-tl-[10px] rounded-tr-[10px]"> 
+      <Common.Cards>
+      <div className="flex items-center justify-between bg-[#fff] px-4 pt-2 pb-2"> 
         <div className="flex items-center gap-6">
           <div>
             <SearchLabTemplate
@@ -96,6 +96,8 @@ const Index = () => {
           onRow={rowProps}
         />
       </div>
+      </Common.Cards>
+     
 
     </div>
 

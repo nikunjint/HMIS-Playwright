@@ -9,22 +9,28 @@ import grouplogo from "../assets/grouplogo.png";
 import activegrid from "../assets/activegrid.png";
 import AllModule from "./AllModules";
 import MenuFilter from "./MenuFilter";
+import { rightsiderData } from "../utiles/rightsider";
 // import { rightsiderData } from "../utiles/rightsider";
 
 const SiderLayout = ({ rootSubmenuKeys, item }) => {
-  // const param = useLocation();
+  const param = useLocation();
+  const userroute = useNavigate();
+
   const [open, setOpen] = React.useState({
     open: false,
   });
   const [collapsed, setCollapsed] = React.useState(true);
   const [openKeys, setOpenKeys] = React.useState([]);
   const [filterData, setFilterData] = React.useState([]);
-  // const [title] = rightsiderData.filter((item) => (item.to.includes(`${param?.pathname}`) || item.to.startsWith(`${param?.pathname}`)));
-  // console.log('title',title,param?.pathname)
-  // const investigationIndex = inputPath.indexOf(param?.pathname);
-  // const filteredPath = inputPath.substring(investigationIndex);
-  // console.log('filteredPath',filteredPath)
-  const userroute = useNavigate();
+
+   const firstSlashIndex = param?.pathname?.indexOf('/');
+  
+   const secondSlashIndex = param?.pathname?.indexOf('/', firstSlashIndex + 1);
+   
+   const filteredPath = secondSlashIndex !== -1 ? param?.pathname?.substring(0, secondSlashIndex) : param?.pathname
+  const [title] = rightsiderData?.filter((item) => (item.to.toLowerCase() === filteredPath.toLowerCase()));
+  
+
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys?.indexOf(key) === -1);
@@ -70,9 +76,9 @@ const SiderLayout = ({ rootSubmenuKeys, item }) => {
           <div className={`flex items-center ${collapsed ? "hidden" : ""}`}>
             {!collapsed && (
               <div className="ml-1 flex items-center gap-2">
-                <div>Logo</div>
+                <div>{title?.icon}</div>
                 <div>
-                  <h4 className="text-base font-medium ">Name</h4>
+                  <h4 className="text-base font-medium ">{title?.name}</h4>
                 </div>
               </div>
             )}

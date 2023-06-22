@@ -44,7 +44,7 @@ const UndoCollectSample = ({ data }) => {
     },
   ];
   return (
-    <div>
+    <Common.Cards>
       <Common.Tables
         spinning={false}
         data={data}
@@ -53,7 +53,7 @@ const UndoCollectSample = ({ data }) => {
         rowKey="key"
         className="my-table"
       />
-    </div>
+    </Common.Cards>
   );
 };
 export default UndoCollectSample;

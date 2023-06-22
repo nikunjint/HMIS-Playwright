@@ -53,3 +53,16 @@ export const useFeatchOrganization = (page) => {
       },
     });
   }
+  
+  export const  useEditSubOrganization=()=> {
+
+    const queryClient = useQueryClient();  
+  
+    return useMutation((data) => putUploader(`sub-organizations/${data?.id}`,data?.payload), {
+      onSuccess: (data) => {
+      queryClient.invalidateQueries([queryKeys.userManagement.setup.suborganization]);
+      Common.notifications('Success',`${data?.message }`,'success')
+
+      },
+    });
+  }

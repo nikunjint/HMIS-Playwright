@@ -6,19 +6,15 @@ import SearchParamaterSetup from "./SearchParamaterSetup";
 import { PlusCircleFilled } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 
-
 function ParameterIndex() {
-  const slug=useParams()
-  const param=slug?.slug
+  const slug = useParams();
+  const param = slug?.slug;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [filterData, setFilterData] = React.useState([]);
 
   const [modaldata, setModalData] = React.useState();
-
-
-
 
   const handleRowClick = (record) => {
     document.body.classList.add("modal-open");
@@ -129,7 +125,8 @@ function ParameterIndex() {
   const rowProps = (record) => ({
     onClick: (event) => {
       const target = event.target;
-      const isSwitch = target.tagName === 'SPAN' || target.className.includes('ant-switch');
+      const isSwitch =
+        target.tagName === "SPAN" || target.className.includes("ant-switch");
       if (!isSwitch) {
         handleRowClick(record);
       }
@@ -141,53 +138,49 @@ function ParameterIndex() {
   //   setFilterData(dataSource);
   // }, [dataSource]);
   const handleAdd = () => {
-    document.body.classList.add('modal-open');
+    document.body.classList.add("modal-open");
     setModalData([]);
     setIsModalOpen(!isModalOpen);
   };
   return (
-    <>
-
-
-      <div className="flex items-center justify-between bg-[#fff] px-4 pt-4 mt-2 pb-2"> 
-        <div className="flex items-center gap-6">
-          <div>
-            <SearchParamaterSetup
-              data={data} 
-              onFilterData={OnFilterData}
-            />
+    <div className="mt-4">
+      <Common.Cards>
+        <div className="flex items-center justify-between bg-[#fff] px-4  pb-2 ">
+          <div className="flex items-center gap-6">
+            <div>
+              <SearchParamaterSetup data={data} onFilterData={OnFilterData} />
+            </div>
           </div>
-       
+          <div className="item-center flex gap-4">
+            <Button
+              className="btn text-white mb-1 ml-auto flex items-center justify-center bg-main"
+              onClick={handleAdd}
+            >
+              Add <PlusCircleFilled size={20} />
+            </Button>
+          </div>
         </div>
-        <div className="item-center flex gap-4">
-        <Button
-            className="btn text-white mb-1 ml-auto flex items-center justify-center bg-main"
-            onClick={handleAdd}
-          >
-            Add <PlusCircleFilled size={20} />
-          </Button>
+        <div className="patientlist mb-5">
+          <Common.Tables
+            spinning={false}
+            data={param.toString() === "4" ? "" : filterData}
+            columns={columns}
+            className="  cursor-pointer rounded-none pb-5 pt-2"
+            pagination={false}
+            onRow={rowProps}
+            size="small"
+          />
         </div>
-      </div>
-      <div className="patientlist mb-5"> 
-      <Common.Tables
-          spinning={false}
-          data={ (param.toString() === '4'? '': filterData)}
-          columns={columns}
-          className="  cursor-pointer rounded-none pb-5 pt-2"
-          pagination={false}
-          onRow={rowProps}
-          size="small"
-        />
-      </div>
 
-      {isModalOpen && (
-        <ParameterSetupModal
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          modaldata={modaldata}
-        />
-      )}
-    </>
+        {isModalOpen && (
+          <ParameterSetupModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            modaldata={modaldata}
+          />
+        )}
+      </Common.Cards>
+    </div>
   );
 }
 

@@ -11,15 +11,18 @@ const PatientInfo = () => {
   return (
 
     
-    <div>
+    <div className="grid grid-flow-row gap-4">
 
-
-      <h5 className="text-md mb-0 text-left text-md font-medium text-[#292561]">
+       <div>
+       <h5 className="text-md mb-0 text-left text-md font-medium text-[#292561]">
         Patient Information
       </h5>
-      <div className="mt-3">
+       </div>
+      
+      <div >
         <PatientInfoEditSave />
       </div>
+      <div>
       <Common.Cards>
         <Form {...formItemLayout}>
           <div className="w-full grid-flow-row items-center justify-between gap-10 md:flex">
@@ -68,6 +71,8 @@ const PatientInfo = () => {
           </div>
         </Form>
       </Common.Cards>
+      </div>
+      
     </div>
   );
 };

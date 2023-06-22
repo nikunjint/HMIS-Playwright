@@ -1,20 +1,27 @@
 import React from 'react'
 import { Form } from "antd";
 import Common from "../../../common";
-import { useAddSubOrganization } from "../../../../services/userManagement/SetUp";
+import { useAddSubOrganization, useEditSubOrganization } from "../../../../services/userManagement/SetUp";
 import { useForm } from "antd/es/form/Form";
 
 const ViewEditdSubOrganization = ({ open, setOpen }) => {
   const [switchvalue,handleSwitch]=React.useState()
   const [form]=useForm()
   const addsubOrganization=useAddSubOrganization()
+  const editsubOrganization=useEditSubOrganization()
+
   const formItemLayout = {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
   };
   const onFinish = (values) => {
     values.is_default=switchvalue?switchvalue:open.data?.isDefault
-    addsubOrganization.mutate(values)
+    if(open.add){
+      addsubOrganization.mutate(values)
+
+    }else if(open.edit){
+      editsubOrganization.mutate({id:open?.data?.id,payload:values})
+    }
     form.resetFields()
     setOpen({open:false})
   };
@@ -63,7 +70,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
             </div>
             <div className="col-span-4">
               <Common.Inputs
-                name="phone_no"
+                name="mobileNo"
                 initialValue={open.data?.mobileNo}
                 readOnly={open?.edit ? false : true}
                 hidelabel

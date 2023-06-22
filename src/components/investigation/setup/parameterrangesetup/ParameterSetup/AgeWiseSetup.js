@@ -267,7 +267,7 @@ const AgeWiseSetup=()=>{
       };
   
     return(
-        <div className='pt-4 rounded-[10px] bg-white mt-2 pb-2'>
+        <div className='rounded-[10px] bg-white  pb-2'>
         <div>
             <Button className="btn text-white mb-1 ml-auto flex items-center justify-center bg-main mr-4" onClick={handleAddRow}>
                 Add <PlusCircleFilled size={20} />
