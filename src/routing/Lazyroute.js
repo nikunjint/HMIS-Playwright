@@ -3,7 +3,6 @@ import { lazy } from "react";
 export const LoginScreen = lazy(() => import("../components/auth/LoginScreen"));
 export const HomeScreen = lazy(() => import("../components/home"));
 export const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
-export const Users = lazy(() => import("../components/usermanagement"));
 
 
 
@@ -53,7 +52,7 @@ export const LabTemplate=lazy(()=>import('../components/investigation/setup/labT
 
 //users
 export const User=lazy(()=>import('../layouts/UserManagement'))
-export const Usermanagement=lazy(()=>import('../components/usermanagement'))
+export const Userdashboard=lazy(()=>import('../components/usermanagement/dashboard'))
 export const DepartmentList=lazy(()=>import('../components/usermanagement/setup/department/DepartmentList'))
 export const OrganizationList=lazy(()=>import('../components/usermanagement/setup/organizations/OrganizationList'))
 export const SubOrganizationList=lazy(()=>import('../components/usermanagement/setup/subOrganization/SubOrganizationList'))

@@ -15,7 +15,6 @@ import {
   SubFeatures,
   SubMenu,
   PageNotFound,
-  Users,
   Clinical,
   ClinicalPatientDetails,
   PatientRegistration,
@@ -35,7 +34,7 @@ import {
   SubOrganizationList,
   DeginationList,
   EmployeeList,
-  Usermanagement,
+  Userdashboard,
   PrevilegeList,
   UserList
 } from "./Lazyroute";
@@ -59,12 +58,11 @@ export const Routes = createBrowserRouter(
         <Route path="operation-theatre" element={<OperationTheatre />} />
       </Route>
       <Route path="/user" element={<User />}>
-        <Route index element={<Usermanagement/>}/>
+        <Route index element={<Userdashboard/>}/>
         <Route path="menus" element={<Menu />} />
         <Route path="submenus" element={<SubMenu />} />
         <Route path="features" element={<Features />} />
         <Route path="subfeatures" element={<SubFeatures />} />
-        <Route path="users" element={<Users />} />
         <Route path='setup/department' element={<DepartmentList/>}/>
         <Route path="organizations" element={<OrganizationList/>}/>
         <Route path='suborganizations' element={<SubOrganizationList/>}/> 

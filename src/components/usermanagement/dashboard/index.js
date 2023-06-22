@@ -2,7 +2,7 @@
 import React from "react";
 
 
-function Users() {
+function Index() {
  
   return (
    <div>
@@ -11,4 +11,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Index;
