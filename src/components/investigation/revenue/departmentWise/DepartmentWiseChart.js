@@ -1,5 +1,5 @@
 import { Col, Row } from "antd";
-import { Line, Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import Common from "../../../common";
 

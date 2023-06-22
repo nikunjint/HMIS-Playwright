@@ -90,9 +90,7 @@ const columns = [
 function TestWise() {
 
     const [filterData, setFilterData] = React.useState([]);
-    const OnFilterData = React.useCallback((item) => {
-        setFilterData(item);
-      }, []);
+
     
       React.useEffect(() => {
         setFilterData(data);

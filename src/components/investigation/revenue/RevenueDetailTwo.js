@@ -52,7 +52,7 @@ function RevenueDetailTwo() {
    </div>
 
    <div>
-   <div className={`font-Poppins font-normal text-sm ${item.image == chartup ? 'text-[#2CB257]' : 'text-red'}`}>
+   <div className={`font-Poppins font-normal text-sm ${item.image === chartup ? 'text-[#2CB257]' : 'text-red'}`}>
 16.05%
 </div>       <div className='font-Poppins font-normal text-xs text-[#A8A8A8] mt-[2px]'>vs last 24 hours</div>
    </div>
