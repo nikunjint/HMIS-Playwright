@@ -844,6 +844,9 @@ const AntAction = (props) => {
       });
     }
   };
+  const handelConfirm=()=>{
+    props.delet.mutate(props.id)
+  }
   return (
     <div className="flex items-center gap-2">
       <Dropdown
@@ -865,9 +868,11 @@ const AntAction = (props) => {
                       }
                       // onConfirm={confirm}
                       okText={
-                        <div className="text-red hover:text-shadow">OK</div>
+                        <div className="text-red hover:text-[red] ">OK</div>
                       }
+                      cancelText={<div className="hover:text-main text-sm font-Poppins ">Cancel</div>}
                       // onOpenChange={() => console.log("open change")}
+                      onConfirm={handelConfirm}
                     >
                       <div className="flex w-full items-center gap-1 text-red">
                         {props?.action[2].icon} {props?.action[2].label}
@@ -914,7 +919,7 @@ const AntSwitch = (props) => {
     <FormItem {...props} localrules={localrules}>
       <div className="flex items-center gap-1">
         <div>
-          <Switch onChange={onChangeSwitch} checked={value} size="small" defaultChecked={props.defaultChecked}/>
+          <Switch onChange={onChangeSwitch} checked={props.check || value} size="small" defaultChecked={props.defaultChecked}/>
         </div>
         <div className="mt-1 font-Poppins text-sm font-medium text-[#4C4C4C]">
           {props.label}
