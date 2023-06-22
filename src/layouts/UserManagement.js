@@ -3,7 +3,7 @@ import { Layout, theme } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import SiderLayout from "./Sider";
-import { userItem } from "../utiles/analyticsSidebar";
+import { userItem } from "../utiles/analyticsSidebar"; 
 import { useSelector } from "react-redux";
 import { getAccessToken } from "../utiles/aauthToken";
 
@@ -28,7 +28,17 @@ const data = useSelector((state) => state.auth.userInfo?.data?.user);
           >
             <Navbar className="container" />
           </Header>
-          <Content className="main-content dark:bg-black pt-2 md:px-[20px] lg:px-[30px]">
+          <Content
+
+className={`main-content dark:bg-black md:pr-[20px] 2xl:pr-[40px] pl-[80px] ${
+
+  data ? "pt-[5px]" : "pt-[5px]"
+
+}`}
+
+
+
+>
             <Outlet />
           </Content>
         </Layout>

@@ -94,7 +94,7 @@ const SubOrganizationList = () => {
         />
       </div>
       <div>
-        <div className="flex items-center justify-between bg-[white] px-4 pb-2 pt-2">
+        <div className="flex items-center justify-between bg-[white]">
           <div className="flex items-center gap-6">
             <div>
               <SearchSubOrgList data={data?.data} onFilterData={OnFilterData} />

@@ -246,4 +246,44 @@ const data = [
     code: "ESR",
     sn: 6,
   },
+
+  {
+    key: 7,
+    testname: "ESR",
+    method: "Phoometric",
+    unit: "mm in 1st hour",
+    analyzer: "ELITech",
+    code: "ESR",
+    sn: 7,
+  },
+
+  {
+    key: 8,
+    testname: "ESR",
+    method: "Phoometric",
+    unit: "mm in 1st hour",
+    analyzer: "ELITech",
+    code: "ESR",
+    sn: 8,
+  },
+
+  {
+    key: 9,
+    testname: "ESR",
+    method: "Phoometric",
+    unit: "mm in 1st hour",
+    analyzer: "ELITech",
+    code: "ESR",
+    sn: 9,
+  },
+
+  {
+    key: 10,
+    testname: "ESR",
+    method: "Phoometric",
+    unit: "mm in 1st hour",
+    analyzer: "ELITech",
+    code: "ESR",
+    sn: 10,
+  },
 ];

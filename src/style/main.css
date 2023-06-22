@@ -277,7 +277,7 @@ aside.ant-layout-sider-collapsed .ant-menu-submenu-vertical svg, aside.ant-layou
   content: '';
   width: 50px;
   height: 50px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA9CAYAAAAAq1FaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPBSURBVHgB3ZqLXRpBEMZn904UX3AVhFQQ6QA6MBWoFSRWIFaQWAFYgaYC6EBTgXRwvFFhd7KzCOF53AF7sP5/PziOO8SPb2d29gEQI76P6WYXbxpdLDc6EulR7+BTo41F3+9mYE0YxITvv585++6DeplZeBOyknh/vfW8ZBVWIBYxjXb/HBh/CHl7DaS8Pj12SxARDoYhR9TXFCN8JA2cF6k5QkSMOqObVsItq29JwwowxgonSXYb9n5jzjSbvdw6QghELERxyIgzrQ7+kIC/YUMIIfLeyV5l2X0bF9Ps4C8E/AmbpSbe3rLLstzGxKg+JOPu4wMCnIEJGFROkzwfdMtGYqbVxQsngU/GhBAIuXpHBDq+ljPUoysRRfVXziEeApvbys5QR6iEvMQohEg7B/sL+6zIzlBsOAdQVHkzB1tiUXaL5AylXIqNbQohHNeZ2/eEcmYX3JhmnjtLnfmIja27Mc08dwLF6FKCqt01ShJjqFQ9PQZaKIYGTFQbwQ7DE4nL8fO5MUNCgOEl7D6100PuDU9mnKHayhIhRNpX1fnwZEIMpV4DRaJROOOjTnvUzHT6pay1i8EezKipjZxxEnBjoRAi7bdQF7haDLliUZzMwLnM6SM9OXsiBxbDGP9Gx0Ezc5wLsJmP6mQgRqK5QVU8ZOiJ0wDL0sCfoIv4hbtu33ZXNK9t8IzPaMYG9tOfRwzEMNccJ7zvulX4DDC3xuFVLSF8BnpQ1YVmo6OmjECVNPaii00dMyjlH7AZBs900GIkykewGBT4l45aDE3ZIA7U2QiTvELHUWpmKO/AUoSACh1HYvSCKBu8aRXqf/Y8pjPyRKcpgF2p+Si7UrWQ98OXE2K8JKsK7OdtEiScXmX4eqac8Y4Tz9YIoiaW/L9WM7c2GwpSK2FV2GXGmhgRuArgdzHDEcssaIvIlqAfOnXIv46/F1g1UwzRB9Scc+iNBfGBM11J6JWzXXKJXJHsLT8eL0To8cxOuYR4Py2EWGm1eZsuaVeSLOsxNpNtVxppbtMlJuXtPCH6GqxJnC4pV57Vj5hddH3tOYA4XVJB/z3o+sYmNFJHTgGkvDLV0ap1o+t5QT/Oxnc1GWl2jJVOk6oIXnYbGICmfHlCCWLrbwwKyl7TGJk3o/FF6ohnUeI9rMGocwwhhDC+e7beEiXGWeQlk0W9fBDGZzRTx85lVIcoBUcVQsQyPSt7nFawQ80AKeF3KkYiC4mdelsU6h35Mtw6P/Uoj6/pr0Js2+fH8Rv9c+4wnekkYhWOnMewQR7EP9Kq1n2mkt5+AAAAAElFTkSuQmCC);
+  background: unset;
   top: 72px;
   left: initial;
   right: -33px;
@@ -565,6 +565,7 @@ table tbody td{
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  margin-bottom: 0 !important;
 }
 
 .ant-pagination-options{
@@ -773,6 +774,10 @@ background-color: white;
   padding-left: 8px !important;
 }
 
+th, td{
+  padding-left: 8px !important;
+}
+
 
 
 @media(max-width:1400px){
@@ -861,3 +866,11 @@ body aside .ant-modal{
   padding: 16px 0 !important;
 
 } */
+
+.ant-table-row td{
+padding: 8px !important;
+}
+
+.pathologypatientlist .ant-table-row td{
+  padding: 11px !important;
+  }

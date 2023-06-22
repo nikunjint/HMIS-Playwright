@@ -78,11 +78,11 @@ const UserList = () => {
           mainmodule="User Department"
           name="Go Back"
           to="/"
-          size={"large"}
+          
         />
       </div>
-      <div>
-        <div className="flex items-center justify-between bg-[white] px-4 pb-2 pt-2">
+      <div className="lg:item-center mx-auto p-2  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
+        <div className="flex items-center justify-between bg-[white]">
           <div className="flex items-center gap-6">
             <div>
               <SearchUserList data={data} onFilterData={OnFilterData} />
@@ -126,7 +126,7 @@ const UserList = () => {
             </div>
           </div>
         </div>
-        <div className="patientlist">
+        <div className="patientlist patient_list">
           <Common.Tables
             data={filterData}
             columns={columns}
