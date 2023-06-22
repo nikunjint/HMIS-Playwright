@@ -7,17 +7,18 @@ import { Switch } from "antd";
 import { useDeletSubOrganization, useFeatchSubOrganization } from "../../../../services/userManagement/SetUp";
 
 const SubOrganizationList = () => {
-  const { isLoading, data } = useFeatchSubOrganization();
+  const [queryParams, setQueryParams] = React.useState({
+    page: 1,
+    limit: 10,
+  });
+  const { isLoading, data } = useFeatchSubOrganization(queryParams.page);
   const deletSubOrganization=useDeletSubOrganization()
   const [filterData, setFilterData] = React.useState([]);
   const [open, setOpen] = React.useState({
     open: false,
     data: [],
   });
-  const [queryParams, setQueryParams] = React.useState({
-    page: 1,
-    limit: 10,
-  });
+
   const OnFilterData = React.useCallback((item) => {
     setFilterData(item);
   }, []);
