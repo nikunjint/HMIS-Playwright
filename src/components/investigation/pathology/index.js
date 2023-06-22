@@ -60,7 +60,7 @@ const Index = () => {
   ];
 
   return (
-    <div className=" mb-5 pathology">
+    <div >
       <div>
         <Common.Header
           name="Go Back"
@@ -69,7 +69,7 @@ const Index = () => {
           headmodule="Investigation"
         />
       </div>
-      <div>
+      <div className="w-full">
         <Tabs defaultActiveKey={'1'} items={items} onChange={onChange}  activeKey={value}/>
       </div>
     </div>

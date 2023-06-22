@@ -64,7 +64,7 @@ const OrganizationList = () => {
       render: (_, record) => (
         <div classname="flex justify-center">
           <Common.AntAction
-            action={Action}
+            action={Action.filter((item)=>item.key !==3)}
             data={record}
             setOpen={(e) => setOpen(e)}
             title="Organization"
@@ -90,17 +90,6 @@ const OrganizationList = () => {
             <div>
               <SearchOrganizationList data={data?.data} onFilterData={OnFilterData} />
             </div>
-            <div>
-              <Common.Selects
-                array={[{ id: 1, name: "Hematology" }]}
-                placeholder="global Id"
-                value={"id"}
-                description="name"
-                name="NAME"
-                className="custom-selectborder relative mb-0 w-[200px]"
-                hidelabel
-              />
-            </div>
           </div>
 
           <div className="item-center flex gap-4">
@@ -113,6 +102,7 @@ const OrganizationList = () => {
                     data: [],
                     title: "Add Organization",
                     edit: true,
+                    add:true
                   })
                 }
               >

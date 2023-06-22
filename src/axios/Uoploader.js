@@ -2,7 +2,7 @@ import axiosInstance from "./AxiosInstances";
 export const uploader = async (url, payload) => {
   const { data } = await axiosInstance.post(url, payload);
 
-  return [data];
+  return data;
 };
 
 export const putUploader = async (url, payload) => {

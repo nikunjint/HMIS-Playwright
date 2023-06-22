@@ -99,8 +99,8 @@ const NewGroupFilterTable = () => {
   };
   return (
     <div>
-      <div className="relative grid">
-        <div>
+      <div className="relative grid grid-flow-row gap-0">
+        <div className="mb-2">
           <Common.Header
             headmodule="Investigation"
             currentmodule="Parameter Range Setup"
@@ -111,7 +111,7 @@ const NewGroupFilterTable = () => {
             size={"large"}
           />
         </div>
-
+        <div>
         <Form {...formItemLayout}>
           <Tooltip placement="top" title={text} arrow={mergedArrow}>
             <Button className="absolute right-0 top-0" onClick={showModal}>
@@ -142,7 +142,8 @@ const NewGroupFilterTable = () => {
           </Modal>
 
           <Common.Cards customclass="flex flex-wrap fleximp mt-0 p-2 pt-0 parametercard">
-            <div className="w-[25%] px-2">
+            <div className="w-full grid grid-cols-4 gap-4">
+            <div >
               <Common.Selects
                 array={[{ id: 1, name: "Hematology" }]}
                 label="Department"
@@ -156,7 +157,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[25%] px-2 ">
+            <div >
               <Common.Selects
                 array={[
                   { id: 1, name: "CBC" },
@@ -173,7 +174,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[25%] px-2">
+            <div >
               <Common.Selects
                 array={[{ id: 1, name: "005009" }]}
                 label="CPT Code"
@@ -186,7 +187,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[25%] px-2">
+            <div >
               <Common.Selects
                 array={[{ id: 1, name: "Lavender-Tube(EOTA)" }]}
                 label="Container"
@@ -199,7 +200,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[23%] px-2">
+            <div >
               <Common.Inputs
                 name="specimen"
                 placeholder="Select Specimen"
@@ -208,7 +209,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[23%] px-2">
+            <div >
               <Common.Inputs
                 name="specimenvolmn"
                 label="Specimen Volume"
@@ -217,7 +218,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[23%] px-2">
+            <div >
               <Common.Selects
                 array={[
                   { id: 1, name: "ml" },
@@ -234,7 +235,7 @@ const NewGroupFilterTable = () => {
               />
             </div>
 
-            <div className="w-[31%] px-2">
+            <div >
               <Common.Selects
                 initialValue={methoddata?.map((item) => item?.id) || []}
                 array={methoddata?.map((item) => item)}
@@ -247,10 +248,13 @@ const NewGroupFilterTable = () => {
                 mode="multiple"
               />
             </div>
+            </div>
           </Common.Cards>
         </Form>
+        </div>
+        
 
-        <div className=" mb-5">
+        <div >
           <Tabs
             centered
             defaultActiveKey="1"

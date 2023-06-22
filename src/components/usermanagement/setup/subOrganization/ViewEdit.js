@@ -1,17 +1,33 @@
+import React from 'react'
 import { Form } from "antd";
 import Common from "../../../common";
+import { useAddSubOrganization, useEditSubOrganization } from "../../../../services/userManagement/SetUp";
+import { useForm } from "antd/es/form/Form";
 
 const ViewEditdSubOrganization = ({ open, setOpen }) => {
+  const [switchvalue,handleSwitch]=React.useState()
+  const [form]=useForm()
+  const addsubOrganization=useAddSubOrganization()
+  const editsubOrganization=useEditSubOrganization()
+
   const formItemLayout = {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
   };
   const onFinish = (values) => {
-    console.log("values", values);
+    values.is_default=switchvalue?switchvalue:open.data?.isDefault
+    if(open.add){
+      addsubOrganization.mutate(values)
+
+    }else if(open.edit){
+      editsubOrganization.mutate({id:open?.data?.id,payload:values})
+    }
+    form.resetFields()
+    setOpen({open:false})
   };
   return (
     <Common.AntModal open={open} setOpen={setOpen}>
-      <Form onFinish={onFinish} {...formItemLayout}>
+      <Form onFinish={onFinish} {...formItemLayout} form={form}>
         <div
           className={`fixedwidth setuptitle relative mx-auto  w-[100%] text-left font-Poppins text-lg font-medium`}
         >
@@ -20,6 +36,17 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
 
         <Common.Cards>
           <div className="m-auto grid w-full items-center gap-x-4 md:grid-cols-12">
+          <div className="col-span-4">
+              <Common.Inputs
+                name="organization_id"
+                initialValue={open?.data?.parentOrganization}
+                readOnly={open?.edit ? false : true}
+                hidelabel
+                prefix={"Organization Id:"}
+                bordered={open?.edit ? false : true}
+                type="number"
+              />
+            </div>
             <div className="col-span-4">
               <Common.Inputs
                 name="name"
@@ -33,7 +60,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
 
             <div className="col-span-4">
               <Common.Inputs
-                name="Address"
+                name="address"
                 initialValue={open.data?.address}
                 readOnly={open?.edit ? false : true}
                 hidelabel
@@ -43,8 +70,8 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
             </div>
             <div className="col-span-4">
               <Common.Inputs
-                name="order"
-                initialValue={open.data?.phoneno}
+                name="mobileNo"
+                initialValue={open.data?.mobileNo}
                 readOnly={open?.edit ? false : true}
                 hidelabel
                 prefix={"Phone No:"}
@@ -78,7 +105,10 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 name="is_default"
                 label="Default"
                 hidelabel
-                checked
+                defaultChecked={open.data?.isDefault === 1 ?true:false}
+                initialValue={open.data?.isDefault ===1?true:false}
+                handleSwitch={(e)=>handleSwitch(e)}
+                checked={open.data?.isDefault ===1?true:false}
               />
             </div>
           </div>
@@ -147,6 +177,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
             <Common.Buttons
               size={"tiny"}
               htmlType="submit"
+              loading={addsubOrganization.isLoading}
               className="my-button btn-primary text-uppercase flex items-center justify-center bg-[#0d2f66] text-[white]"
             >
               Save

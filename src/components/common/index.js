@@ -238,7 +238,8 @@ const Selects = (props) => {
         style={{
           ...props.style,
           width: "100%",
-          borderRadius: "20px", // Set the width to props.width if it is defined, otherwise set it to '100%'
+          borderRadius: "20px",
+          height:'100%' // Set the width to props.width if it is defined, otherwise set it to '100%'
         }}
         {...props.fieldProps}
       >
@@ -342,13 +343,14 @@ const Tables = (props) => {
       }
       style={{
         borderBottom: "none",
-        padding: "15px 20px",
+        padding: "16px 0px",
         backgroundColor: "white",
         borderBottomLeftRadius: "10px",
         borderBottomRightRadius: "10px",
+        overflowX:'auto'
       }}
       rowClassName={rowClassName}
-      className="customshadow cursor-pointer"
+      className="cursor-pointer overflow-x-auto"
     />
   );
 };
@@ -572,7 +574,7 @@ const Buttons = (props) => {
       loading={props.loading}
     >
   <div
-    className={`from-neutral-100 flex items-center justify-center gap-2 text-center text-sm font-normal ${
+    className={`from-neutral-100 flex items-center justify-center gap-x-2 text-center text-sm font-normal ${
       props.size ? "text-" + props.size : ""
     } ${props.hovertext ? "hover:text-dark" + props.hovertext : ""}`}
   >
@@ -715,11 +717,11 @@ const AntdCard = (props) => {
 const Cards = (props) => {
   return (
     <Skeleton loading={props.loading}>
-      <div
-        className={` lg:item-center  mx-auto  mb-2 mt-3 w-full rounded-[10px] border-[4px] border-[#fff] bg-shadow px-4 pb-2 pt-3 shadow-sm  ${props.customclass}`}
-      >
-        {props.children}
-      </div>
+   <div className="lg:item-center mx-auto p-4  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
+  {props.children}
+</div>
+
+
     </Skeleton>
   );
 };
@@ -912,7 +914,7 @@ const AntSwitch = (props) => {
     <FormItem {...props} localrules={localrules}>
       <div className="flex items-center gap-1">
         <div>
-          <Switch onChange={onChangeSwitch} checked={value} size="small" />
+          <Switch onChange={onChangeSwitch} checked={value} size="small" defaultChecked={props.defaultChecked}/>
         </div>
         <div className="mt-1 font-Poppins text-sm font-medium text-[#4C4C4C]">
           {props.label}

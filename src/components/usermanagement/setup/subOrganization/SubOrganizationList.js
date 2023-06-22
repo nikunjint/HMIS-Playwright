@@ -51,15 +51,16 @@ const SubOrganizationList = () => {
     },
     {
       title: "Phone",
-      dataIndex: "phoneno",
+      dataIndex: "mobileNo",
     },
     { title: "Code", dataIndex: "code" },
     { title: "Email", dataIndex: "email" },
     {
       title: "Status",
-      render: (record) => (
+      dataIndex:'isDefault',
+      render: (text) => (
         <div>
-          <Switch defaultChecked>Status</Switch>
+          <Switch defaultChecked={text === 1?true:false} value={text}>Status</Switch>
         </div>
       ),
     },
@@ -95,17 +96,6 @@ const SubOrganizationList = () => {
             <div>
               <SearchSubOrgList data={data?.data} onFilterData={OnFilterData} />
             </div>
-            <div>
-              <Common.Selects
-                array={[{ id: 1, name: "Hematology" }]}
-                placeholder="Organization Id"
-                value={"id"}
-                description="name"
-                name="NAME"
-                className="custom-selectborder relative mb-0 w-[200px]"
-                hidelabel
-              />
-            </div>
           </div>
           <div className="item-center flex gap-4">
             <div>
@@ -117,6 +107,7 @@ const SubOrganizationList = () => {
                     data: [],
                     title: "Add Sub Organization",
                     edit: true,
+                    add:true
                   })
                 }
               >

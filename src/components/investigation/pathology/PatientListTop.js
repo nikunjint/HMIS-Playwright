@@ -5,7 +5,7 @@ import { HiX } from "react-icons/hi";
 const PatientListTop = () => {
   return (
     <Common.Cards>
-      <div className="grid gap-y-3 w-full">
+      <div className="grid gap-y-4 w-full">
         <div className="  w-full justify-between gap-6 lg:flex  sm:grid sm:grid-cols-3 sm:grid-rows-2 ">
           <div className="w-full">
             <Common.DatePickers

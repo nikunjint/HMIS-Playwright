@@ -222,7 +222,8 @@ const handelFinish=(value)=>{
   setData([value])
 }
  return(
-  <div className=' m-auto  w-full grid gap-y-4'>
+  <div className=' m-auto  w-full grid gap-y-4 mt-4'>
+    <Common.Cards>
     <div>
     <Form onFinish={handelFinish} form={form}>
       <div className='justify-end flex'>
@@ -230,7 +231,7 @@ const handelFinish=(value)=>{
           Save <HiDocumentRemove/>
         </Button>
       </div>
-      <div className="grid gap-y-4 mx-auto mt-3   shadow-sm bg-[#fff] rounded-[20px] ">
+      <div className="grid gap-y-4 mx-auto mt-3bg-[#fff] ">
       <div>
         <div >
           {
@@ -337,9 +338,10 @@ const handelFinish=(value)=>{
       </div>
     </Form>
     </div>
-    <div>
+    </Common.Cards>
+    <Common.Cards>
      <ReportFooter data={data}/>
-    </div>
+    </Common.Cards>
   </div>
   
  )

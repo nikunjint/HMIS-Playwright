@@ -1,17 +1,33 @@
 import { Form } from "antd";
 import Common from "../../../common";
+import { useAddOrganization, useEditOrganization } from "../../../../services/userManagement/SetUp";
+import { useForm } from "antd/es/form/Form";
 
 const ViewEditdOrganization = ({ open, setOpen }) => {
+  const addOrganization=useAddOrganization()
+  const editOrganization=useEditOrganization()
+  const [form]=useForm()
   const formItemLayout = {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
   };
   const onFinish = (values) => {
-    console.log("values", values);
+    if(open?.add){
+      addOrganization.mutate(values)
+
+    }else if(open?.edit){
+      editOrganization.mutate({id:open?.data?.id,payload:values})
+    }
+    form.resetFields()
+    if(!editOrganization.isLoading || !addOrganization.isLoading ){
+      setOpen({ open: false })
+
+    }
+  
   };
   return (
     <Common.AntModal open={open} setOpen={setOpen}>
-      <Form onFinish={onFinish} {...formItemLayout}>
+      <Form onFinish={onFinish} {...formItemLayout} form={form}>
         <div
           className={`fixedwidth setuptitle relative mx-auto  w-[100%] text-left font-Poppins text-lg font-medium`}
         >
@@ -20,15 +36,21 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
 
         <Common.Cards>
           <div className="m-auto grid w-full items-center gap-x-4 md:grid-cols-12">
-            <div className="col-span-4">
-              <Common.Inputs
-                name="parent_id"
-                hidelabel
-                prefix={'Parent Id:'}
-                bordered={open?.edit ? false : true}
-                readOnly={open?.edit ? false : true}
-              />
-            </div>
+            {
+              !open?.edit &&(
+                <div className="col-span-4">
+                <Common.Inputs
+                  name="global_id"
+                  hidelabel
+                  prefix={'Global Id :'}
+                  bordered={open?.edit ? false : true}
+                  readOnly={open?.edit ? false : true}
+                  type="number"
+                />
+              </div>
+              )
+            }
+           
             <div className="col-span-4">
               <Common.Inputs
                 name="name"
@@ -42,7 +64,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
 
             <div className="col-span-4">
               <Common.Inputs
-                name="Address"
+                name="address"
                 hidelabel
                 prefix={'Report Title:'}
                 bordered={open?.edit ? false : true}
@@ -52,12 +74,13 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
             </div>
             <div className="col-span-4">
               <Common.Inputs
-                name="order"
+                name="phoneno"
                 hidelabel
                 prefix={'Phone No:'}
                 bordered={open?.edit ? false : true}
                 initialValue={open.data?.phoneno}
                 readOnly={open?.edit ? false : true}
+                type="phone"
               />
             </div>
             <div className="col-span-4">
@@ -139,6 +162,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
             <Common.Buttons
               size={"tiny"}
               htmlType="submit"
+              loading={addOrganization.isLoading || editOrganization.isLoading}
               className="my-button btn-primary text-uppercase flex items-center justify-center bg-[#0d2f66] text-[white]"
             >
               Save

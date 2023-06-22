@@ -27,8 +27,16 @@ module.exports = {
       'full': '9999px',
       'large': '12px',
     },
+    boxShadow: {
+      top: '0px -4px 6px -1px rgba(0, 0, 0, 0.1)',
+      bottom: '0px 4px 6px -1px rgba(0, 0, 0, 0.1)',
+      gray: '0px 0px 10px 0px rgba(128, 128, 128, 0.25)',
+    },
+   
 
     extend: {
+      boxShadow: ['hover', 'focus'],
+
       fontFamily: {
         Poppins: ['Poppins', 'sans-serif'], 
       }, 

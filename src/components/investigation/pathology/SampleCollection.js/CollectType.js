@@ -81,16 +81,17 @@ const CollectType = () => {
     },
   ];
   return (
-    <div className="grid-flow-row  justify-between gap-4 pb-4 lg:flex">
+    <div className="grid-flow-row grid justify-between gap-4 lg:flex">
       <div>
         <div>
-          <Divider orientation="left">
+          <Divider orientation="left" className="m-0 p-0">
             <div className="font-Poppins text-sm font-normal text-[#292561]">
               Sample Collection
             </div>
           </Divider>
         </div>
         <div className="w-full">
+          <Common.Cards>
           <Common.Tables
             spinning={false}
             data={data}
@@ -99,13 +100,13 @@ const CollectType = () => {
             rowKey="key"
             className="my-table"
           />
+          </Common.Cards>
         </div>
       </div>
 
       <div className="w-full">
-        <div>
           <div>
-            <Divider orientation="left">
+            <Divider orientation="left" className="m-0 p-0">
               <div className="font-Poppins text-sm font-normal text-[#292561]">
                 Collected Samples
               </div>
@@ -115,7 +116,6 @@ const CollectType = () => {
             <UndoCollectSample data={data} />
           </div>
         </div>
-      </div>
     </div>
   );
 };

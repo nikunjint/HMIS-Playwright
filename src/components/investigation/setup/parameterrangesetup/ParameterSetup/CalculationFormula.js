@@ -11,7 +11,7 @@ const { TextArea } = Input;
 const CalculationFormula = () => {
   return (
     <div
-      className={`calculationformula fixedwidth border-5 mx-auto mt-3 w-[100%] rounded-[10px] border-[#fff] bg-shadow px-4 pb-5 pt-6 shadow-sm relative`}
+      className={`calculationformula fixedwidth`}
     >
       <div className="grid gap-5 grid-cols-[60%,36%]">
         <div>

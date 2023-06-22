@@ -34,14 +34,16 @@ function ParameterSetupModal(props) {
       }}
     >
       <Form>
-        <div className="mb-5 mt-0">
+        <div className="grid w-full grid-flow-row gap-4">
           <div
-            className={`fixedwidth setuptitle text- relative mx-auto mt-0 w-[100%] pt-0 text-left font-Poppins font-semibold text-[#292561]`}
+            className={`fixedwidth setuptitle text- relative mx-auto mt-0 w-[100%] text-left font-Poppins font-semibold text-[#292561]`}
           >
             Parameter Setup
           </div>
+          <div>
+          <Common.Cards>
           <div
-            className={`calculationformula fixedwidth border-5 mx-auto mt-3 w-[100%] rounded-[10px] border-[#fff] bg-shadow px-4 pb-6 pt-5 shadow-sm`}
+            className={`calculationformula fixedwidth`}
           >
             <div className="w-1/4">
               <Common.Selects
@@ -190,9 +192,11 @@ function ParameterSetupModal(props) {
               </div>
             </div>
           </div>
-
+          </Common.Cards>
+          </div>
+         
           <div
-            className={`fixedwidth setuptitle relative mx-auto w-[100%] pt-5 text-left font-Poppins text-sm font-medium `}
+            className={`fixedwidth setuptitle relative mx-auto w-[100%]  text-left font-Poppins text-sm font-medium `}
           >
             <Divider
               orientation="left"
@@ -203,9 +207,14 @@ function ParameterSetupModal(props) {
               Reference Range Setup
             </Divider>
           </div>
+          <div>
+          <Common.Cards>
           <AgeWiseSetup />
+            
+          </Common.Cards>
+          </div>
           <div
-            className={`fixedwidth setuptitle relative mx-auto mt-3 w-[100%] text-left font-Poppins text-sm font-medium`}
+            className={`fixedwidth setuptitle relative mx-auto  w-[100%] text-left font-Poppins text-sm font-medium`}
           >
             <Divider
               orientation="left"
@@ -216,10 +225,14 @@ function ParameterSetupModal(props) {
               Frequent Result
             </Divider>
           </div>
-          <FrequentRequest />
+          <div>
+          <Common.Cards>
 
+          <FrequentRequest />
+          </Common.Cards>
+          </div>
           <div
-            className={`fixedwidth setuptitle relative mx-auto mt-3 w-[100%] text-left font-Poppins text-sm font-medium`}
+            className={`fixedwidth setuptitle relative mx-auto  w-[100%] text-left font-Poppins text-sm font-medium`}
           >
             <Divider
               orientation="left"
@@ -230,7 +243,12 @@ function ParameterSetupModal(props) {
               Calculation Formula
             </Divider>
           </div>
+          <div>
+          <Common.Cards>
           <CalculationFormula />
+
+          </Common.Cards>
+          </div>
         </div>
       </Form>
     </Modal>

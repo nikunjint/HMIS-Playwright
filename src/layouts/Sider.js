@@ -6,20 +6,31 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import grid from "../assets/grid.png";
 import speaker from "../assets/speaker.png";
 import grouplogo from "../assets/grouplogo.png";
-import activegrid from "../assets/activegrid.png"; 
+import activegrid from "../assets/activegrid.png";
 import AllModule from "./AllModules";
 import MenuFilter from "./MenuFilter";
+import { rightsiderData } from "../utiles/rightsider";
+// import { rightsiderData } from "../utiles/rightsider";
 
-const SiderLayout = ({rootSubmenuKeys,item }) => {
+const SiderLayout = ({ rootSubmenuKeys, item }) => {
+  const param = useLocation();
+  const userroute = useNavigate();
+
   const [open, setOpen] = React.useState({
-    open:false,
-   
+    open: false,
   });
   const [collapsed, setCollapsed] = React.useState(true);
   const [openKeys, setOpenKeys] = React.useState([]);
   const [filterData, setFilterData] = React.useState([]);
 
-  const userroute = useNavigate();
+   const firstSlashIndex = param?.pathname?.indexOf('/');
+  
+   const secondSlashIndex = param?.pathname?.indexOf('/', firstSlashIndex + 1);
+   
+   const filteredPath = secondSlashIndex !== -1 ? param?.pathname?.substring(0, secondSlashIndex) : param?.pathname
+  const [title] = rightsiderData?.filter((item) => (item.to.toLowerCase() === filteredPath.toLowerCase()));
+  
+
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys?.indexOf(key) === -1);
@@ -41,13 +52,8 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
     setCollapsed(!collapsed);
   };
 
-  
-
-
-
   const OnFilterData = React.useCallback((item) => {
     setFilterData(item);
-    
   }, []);
 
   React.useEffect(() => {
@@ -55,7 +61,7 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
   }, [item]);
   return (
     <div className={`h-full  ${open.open ? "sidebarindex" : ""}`}>
-      <Layout.Sider 
+      <Layout.Sider
         trigger={null}
         collapsedWidth={40}
         collapsible
@@ -68,29 +74,13 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
       >
         <div className="flex items-center justify-between px-4 pt-3">
           <div className={`flex items-center ${collapsed ? "hidden" : ""}`}>
-            {/* {collapsed ? (
-              <Link to="/">
-                <img
-                  src={react}
-                  className="animate-[spin_10s_linear_infinite] transition delay-150 ease-in-out" 
-                  style={{ width: "30px" }}
-                  alt="MidasLight"
-                />
-              </Link>
-            ) : (
-              <Link to="/">
-                {" "}
-                <img
-                  src={null}
-                  className="animate-[spin_10s_linear_infinite] transition delay-150 ease-in-out"
-                  style={{ width: "30px" }}
-                  alt="MidasLight"
-                />
-              </Link>
-            )} */}
-
-            {collapsed ? null : (
-              <h4 className="text-base font-medium ">TEST</h4>
+            {!collapsed && (
+              <div className="ml-1 flex items-center gap-2">
+                <div>{title?.icon}</div>
+                <div>
+                  <h4 className="text-base font-medium ">{title?.name}</h4>
+                </div>
+              </div>
             )}
           </div>
 
@@ -101,16 +91,18 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
                 className="ml-1 mt-2 cursor-pointer"
                 style={{ width: "14px" }}
                 alt="MidasLight"
-                onClick={() => setOpen({open:!open?.open, icon:true,
-                  mask:true})}
+                onClick={() =>
+                  setOpen({ open: !open?.open, icon: true, mask: true })
+                }
               />
-            ) : ( 
+            ) : (
               <img
                 src={grid}
-                style={{ width: "14px" ,cursor:'pointer'}}
+                style={{ width: "14px", cursor: "pointer" }}
                 alt="MidasLight"
-                onClick={() => setOpen({open:!open?.open, icon:true,
-                  mask:true})}
+                onClick={() =>
+                  setOpen({ open: !open?.open, icon: true, mask: true })
+                }
               />
             )
           ) : collapsed ? (
@@ -121,11 +113,12 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
                 width: "25px",
                 border: "1px solid lightgray",
                 padding: "5px",
-                borderRadius: "8px", 
+                borderRadius: "8px",
               }}
               alt="MidasLight"
-              onClick={() => setOpen({open:!open?.open, icon:true,
-                mask:true})}
+              onClick={() =>
+                setOpen({ open: !open?.open, icon: true, mask: true })
+              }
             />
           ) : (
             <img
@@ -138,17 +131,16 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
                 borderRadius: "8px",
               }}
               alt="MidasLight"
-              onClick={() => setOpen({open:!open?.open, icon:true,
-                mask:true})}
+              onClick={() =>
+                setOpen({ open: !open?.open, icon: true, mask: true })
+              }
             />
           )}
         </div>
 
-        {open.open && (
-          <AllModule open={open} setOpen={(e)=>setOpen(e)}/>
-        )}
+        {open.open && <AllModule open={open} setOpen={(e) => setOpen(e)} />}
 
-        <div className="bg-white text-midas-base h-full">
+        <div className="bg-white h-full text-midas-base">
           {React.createElement(
             collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
             {
@@ -159,10 +151,14 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
             }
           )}
 
- 
-         <div>
-          <MenuFilter collapsed={collapsed} searchcollapse={searchcollapse} onFilterData={OnFilterData} filterData={item}/>
-         </div>
+          <div>
+            <MenuFilter
+              collapsed={collapsed}
+              searchcollapse={searchcollapse}
+              onFilterData={OnFilterData}
+              filterData={item}
+            />
+          </div>
 
           <Menu
             className=" text-midas-base"
@@ -176,7 +172,7 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
           />
 
           {!collapsed && (
-            <div className=" animate-wiggle machine">
+            <div className=" machine animate-wiggle">
               <div className="mt-10 flex px-2">
                 <img
                   className="mt-2"
@@ -195,7 +191,7 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
                       with machine interfacing
                     </p>
                   </div>
-                  <Link className="mt-4 rounded-[5px] border border-[#D1D5DB] bg-[#fff] p-1 px-2 text-[12px] text-[#4C4C4C] hover:bg-[#292561] hover:text-[#fff] flex items-center justify-center w-fit mx-auto">
+                  <Link className="mx-auto mt-4 flex w-fit items-center justify-center rounded-[5px] border border-[#D1D5DB] bg-[#fff] p-1 px-2 text-[12px] text-[#4C4C4C] hover:bg-[#292561] hover:text-[#fff]">
                     Learn More
                   </Link>
                 </div>
@@ -220,6 +216,5 @@ const SiderLayout = ({rootSubmenuKeys,item }) => {
     </div>
   );
 };
-
 
 export default SiderLayout;
