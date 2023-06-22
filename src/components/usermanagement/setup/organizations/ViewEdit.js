@@ -37,7 +37,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
         <Common.Cards>
           <div className="m-auto grid w-full items-center gap-x-4 md:grid-cols-12">
             {
-              !open?.edit &&(
+              (!open?.edit || open.add )&&(
                 <div className="col-span-4">
                 <Common.Inputs
                   name="global_id"
@@ -66,7 +66,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
               <Common.Inputs
                 name="address"
                 hidelabel
-                prefix={'Report Title:'}
+                prefix={'Address :'}
                 bordered={open?.edit ? false : true}
                 initialValue={open.data?.address}
                 readOnly={open?.edit ? false : true}
@@ -76,7 +76,7 @@ const ViewEditdOrganization = ({ open, setOpen }) => {
               <Common.Inputs
                 name="phoneno"
                 hidelabel
-                prefix={'Phone No:'}
+                prefix={'Phone No :'}
                 bordered={open?.edit ? false : true}
                 initialValue={open.data?.phoneno}
                 readOnly={open?.edit ? false : true}

@@ -37,9 +37,9 @@ export const useFeatchOrganization = (page) => {
     });
   }
 //sub-organizations
-  export const useFeatchSubOrganization = () => {
-    return useQuery([queryKeys.userManagement.setup.suborganization], () =>
-      fetcher(`sub-organizations`)
+  export const useFeatchSubOrganization = (page) => {
+    return useQuery([queryKeys.userManagement.setup.suborganization,page], () =>
+      fetcher(`sub-organizations?page=${page}`)
     );
   };
   export const  useAddSubOrganization=()=> {

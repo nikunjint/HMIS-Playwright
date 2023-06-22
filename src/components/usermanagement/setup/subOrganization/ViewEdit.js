@@ -71,8 +71,19 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
             </div>
             <div className="col-span-4">
               <Common.Inputs
-                name="mobileNo"
-                initialValue={open.data?.mobileNo}
+                name="mobile_no"
+                initialValue={open.data?.mobile_no}
+                readOnly={open?.edit ? false : true}
+                hidelabel
+                prefix={"Mobile No :"}
+                bordered={open?.edit ? false : true}
+                type="number"
+              />
+            </div>
+            <div className="col-span-4">
+              <Common.Inputs
+                name="phone_no"
+                initialValue={open.data?.phone_no}
                 readOnly={open?.edit ? false : true}
                 hidelabel
                 prefix={"Phone No :"}
