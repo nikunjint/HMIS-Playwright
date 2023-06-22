@@ -4,10 +4,11 @@ import { Action } from "../../../../utiles/action";
 import ViewEditdSubOrganization from "./ViewEdit";
 import SearchSubOrgList from "./SubOrdSearch";
 import { Switch } from "antd";
-import { useFeatchSubOrganization } from "../../../../services/userManagement/SetUp";
+import { useDeletSubOrganization, useFeatchSubOrganization } from "../../../../services/userManagement/SetUp";
 
 const SubOrganizationList = () => {
   const { isLoading, data } = useFeatchSubOrganization();
+  const deletSubOrganization=useDeletSubOrganization()
   const [filterData, setFilterData] = React.useState([]);
   const [open, setOpen] = React.useState({
     open: false,
@@ -66,14 +67,16 @@ const SubOrganizationList = () => {
     },
     {
       title: "Action",
-      dataIndex: "REFERED",
-      render: (_, record) => (
+      dataIndex: "id",
+      render: (text, record) => (
         <div>
           <Common.AntAction
             action={Action}
             data={record}
             setOpen={(e) => setOpen(e)}
             title="Sub Organization"
+            id={text}
+            delet={deletSubOrganization}
           />
         </div>
       ),
@@ -154,159 +157,3 @@ const SubOrganizationList = () => {
   );
 };
 export default SubOrganizationList;
-// const data = [
-//   {
-//     sn: 1,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 2,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 2",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 3,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 3",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 4,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 4",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 5,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 6,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 7,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 8,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 9,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 10,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-//   {
-//     sn: 11,
-//     name: 'Sandip Dhakal',
-//     address: "Panipokhari 1",
-//     phoneno: '9876545434',
-//     code: "00212",
-//     email: "sandip@gmail.com",
-//     created_at:'2023-4-6',
-//     created_by:'Nikesh Bhandari',
-//     updated_by:'Sandip Dhakal',
-//     updated_at:'2023-6-4',
-//     organization_id:'775',
-//     is_default:true
-//   },
-// ];

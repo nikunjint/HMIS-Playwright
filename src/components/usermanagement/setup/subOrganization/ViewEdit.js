@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from "antd";
+import { Divider, Form } from "antd";
 import Common from "../../../common";
 import { useAddSubOrganization, useEditSubOrganization } from "../../../../services/userManagement/SetUp";
 import { useForm } from "antd/es/form/Form";
@@ -27,13 +27,13 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
   };
   return (
     <Common.AntModal open={open} setOpen={setOpen}>
-      <Form onFinish={onFinish} {...formItemLayout} form={form}>
+      <Form onFinish={onFinish} {...formItemLayout} form={form} className='grid grid-flow-row gap-4'>
         <div
           className={`fixedwidth setuptitle relative mx-auto  w-[100%] text-left font-Poppins text-lg font-medium`}
         >
           {open?.title}
         </div>
-
+        <Divider className='p-0 m-0'/>
         <Common.Cards>
           <div className="m-auto grid w-full items-center gap-x-4 md:grid-cols-12">
           <div className="col-span-4">
@@ -42,7 +42,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open?.data?.parentOrganization}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Organization Id:"}
+                prefix={"Organization Id :"}
                 bordered={open?.edit ? false : true}
                 type="number"
               />
@@ -53,7 +53,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open.data?.name}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Name:"}
+                prefix={"Name :"}
                 bordered={open?.edit ? false : true}
               />
             </div>
@@ -64,7 +64,8 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open.data?.address}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Address:"}
+                prefix={"Address :"}
+                maxlength={30}
                 bordered={open?.edit ? false : true}
               />
             </div>
@@ -74,7 +75,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open.data?.mobileNo}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Phone No:"}
+                prefix={"Phone No :"}
                 bordered={open?.edit ? false : true}
                 type="number"
               />
@@ -85,7 +86,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open.data?.code}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Code:"}
+                prefix={"Code :"}
                 bordered={open?.edit ? false : true}
               />
             </div>
@@ -95,7 +96,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                 initialValue={open.data?.email}
                 readOnly={open?.edit ? false : true}
                 hidelabel
-                prefix={"Email:"}
+                prefix={"Email :"}
                 bordered={open?.edit ? false : true}
                 type="email"
               />
@@ -131,7 +132,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                   initialValue={open.data?.updated_by}
                   readOnly={true}
                   hidelabel
-                  prefix={"Update By:"}
+                  prefix={"Update By :"}
                   bordered={true}
                   type="email"
                 />
@@ -139,10 +140,10 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
               <div className="col-span-4">
                 <Common.Inputs
                   name="created_at"
-                  initialValue={open.data?.created_at}
+                  initialValue={open.data?.createdAt.slice(0,10)}
                   readOnly={true}
                   hidelabel
-                  prefix={"Created At:"}
+                  prefix={"Created At :"}
                   bordered={true}
                   type="email"
                 />
@@ -150,10 +151,10 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
               <div className="col-span-4">
                 <Common.Inputs
                   name="updated_at"
-                  initialValue={open.data?.updated_at}
+                  initialValue={open.data?.updatedAt.slice(0,10)}
                   readOnly={true}
                   hidelabel
-                  prefix={"Updated At:"}
+                  prefix={"Updated At :"}
                   bordered={true}
                   type="email"
                 />
@@ -164,7 +165,7 @@ const ViewEditdSubOrganization = ({ open, setOpen }) => {
                   initialValue={open.data?.organization_id}
                   readOnly={true}
                   hidelabel
-                  prefix={"Organization Id:"}
+                  prefix={"Organization Id :"}
                   bordered={true}
                   type="email"
                 />
