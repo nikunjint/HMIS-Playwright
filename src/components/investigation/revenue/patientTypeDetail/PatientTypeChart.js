@@ -1,9 +1,9 @@
 import { Col, Row } from "antd";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
-import Common from "../common";
+import Common from "../../../common";
 
-const Admission = () => {
+const PatientTypeChart = () => {
   Chart.register(...registerables);
 
   const data = {
@@ -33,10 +33,12 @@ const Admission = () => {
     <Common.AntdCard title={"Patient Type"} subtitle={"Count of collected sample in comparison with dispatched / completed sample"} bg={"#fff"} style={{borderRadius:"20px"}}>
       <Row>
         <Col span={24}>
+        <div style={{ width: '100%', height: '300px', margin: "auto" }} className="bars">
           <Bar data={data} />
+          </div>
         </Col>
       </Row>
     </Common.AntdCard>
   );
 };
-export default Admission;
+export default PatientTypeChart;

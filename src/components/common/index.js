@@ -350,7 +350,7 @@ const Tables = (props) => {
         overflowX:'auto'
       }}
       rowClassName={rowClassName}
-      className="cursor-pointer overflow-x-auto"
+      className="cursor-pointer overflow-x-auto w-full"
     />
   );
 };
@@ -691,19 +691,20 @@ const CustomSkeleton = (props) => {
 
 const AntdCard = (props) => {
   return (
-    <Card
+    <Card className="shadowdrop p-3"
       size="small"
       title={
-        <div className=" grid grid-flow-row-dense grid-rows-1 py-2">
+        <div className=" grid grid-flow-row-dense grid-rows-1 py-2 pt-0">
           <div className="flex items-center justify-between">
-            <div className={`flex items-center gap-1 text-[${props.tc}]`}>
+            <div className={`flex font-Poppins font-medium
+             items-center gap-1 text-[${props.tc}]`}>
               {props.icon || null}
               {props.title || null}
             </div>
             <div>{props.buttonType}</div>
           </div>
 
-          <div className="text-slate-800 flex justify-start font-Poppins text-xs font-medium ">
+          <div className="text-[#6B6B6B] flex justify-start font-Poppins text-sm font-medium ">
             {props.subtitle || null}
           </div>
         </div>
