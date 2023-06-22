@@ -130,7 +130,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="patientlist mb-5">
+      <div className="patientlist">
       <Common.Tables
           data={filterData}
           columns={columns} 

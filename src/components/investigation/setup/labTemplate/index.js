@@ -66,7 +66,7 @@ const Index = () => {
 
 
       <Common.Cards>
-      <div className="flex items-center justify-between bg-[#fff] px-4 pt-2 pb-2"> 
+      <div className="flex items-center justify-between bg-[#fff]"> 
         <div className="flex items-center gap-6">
           <div>
             <SearchLabTemplate
@@ -85,7 +85,7 @@ const Index = () => {
           </Button>
         </div>
       </div>
-      <div className="patientlist mb-5"> 
+      <div className="patientlist"> 
       <Common.Tables
           spinning={false}
           columns={columns}

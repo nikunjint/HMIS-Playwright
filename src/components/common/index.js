@@ -63,7 +63,7 @@ const FormItem = (props) => {
       name={props.name}
       label={
         props.hidelabel ? null : (
-          <span className=" mt-1 font-Poppins text-sm font-medium text-[#292561]">
+          <span className=" font-Poppins text-sm font-medium text-[#292561]">
             {props.label}
           </span>
         )
@@ -343,7 +343,7 @@ const Tables = (props) => {
       }
       style={{
         borderBottom: "none",
-        padding: "16px 0px",
+        padding: "10px 0px",
         backgroundColor: "white",
         borderBottomLeftRadius: "10px",
         borderBottomRightRadius: "10px",
@@ -717,7 +717,7 @@ const AntdCard = (props) => {
 const Cards = (props) => {
   return (
     <Skeleton loading={props.loading}>
-   <div className="lg:item-center mx-auto p-4  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
+   <div className="lg:item-center mx-auto p-2  w-full rounded-[10px] border-[4px] border-[white] bg-[white]   shadow-bottom shadow-gray">
   {props.children}
 </div>
 

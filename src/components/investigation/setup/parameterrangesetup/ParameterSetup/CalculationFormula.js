@@ -11,7 +11,7 @@ const { TextArea } = Input;
 const CalculationFormula = () => {
   return (
     <div
-      className={`calculationformula fixedwidth`}
+      className={`calculationformula fixedwidth relative`}
     >
       <div className="grid gap-5 grid-cols-[60%,36%]">
         <div>
@@ -108,7 +108,7 @@ const CalculationFormula = () => {
         </div>
         <div className='w-full flex items-end justify-end'>
             <img
-              src={setting} className="absolute right-5 top-5 w-[20px]"
+              src={setting} className="absolute right-0 top-0 w-[20px]"
         
               alt="Setting"
               

@@ -108,7 +108,7 @@ const DeginationList = () => {
           </div>
         </div>
       </div>
-      <div classname="patientlist mb-5">
+      <div classname="patientlist">
       <Common.Tables
           data={filterData}
           columns={columns}

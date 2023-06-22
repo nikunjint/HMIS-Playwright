@@ -765,6 +765,15 @@ background-color: white;
   
 } 
 
+.ant-input-affix-wrapper{
+  height: 32px;
+}
+
+.patient_list th, .patient_list td{
+  padding-left: 8px !important;
+}
+
+
 
 @media(max-width:1400px){
   .scrollview{
@@ -843,7 +852,6 @@ body aside .ant-modal{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 
 /* .ant-table-wrapper .ant-table-thead>tr>th{

@@ -126,7 +126,7 @@ function Index() {
     <Common.Cards>
       <div>
         <Button
-          className="btn text-white mb-1 ml-auto mr-4 flex items-center justify-center bg-main"
+          className="btn text-white mb-1 ml-auto  flex items-center justify-center bg-main"
           onClick={handleAddRow}
         >
           Add <PlusCircleFilled size={20} />

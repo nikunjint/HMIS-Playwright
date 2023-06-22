@@ -141,8 +141,8 @@ const NewGroupFilterTable = () => {
             </video>
           </Modal>
 
-          <Common.Cards customclass="flex flex-wrap fleximp mt-0 p-2 pt-0 parametercard">
-            <div className="w-full grid grid-cols-4 gap-4">
+          <Common.Cards customclass="flex flex-wrap fleximp mt-0 p-2 pt-0 parametercard ">
+            <div className="w-full grid grid-cols-4 gap-x-4 rangesetupcard">
             <div >
               <Common.Selects
                 array={[{ id: 1, name: "Hematology" }]}
@@ -150,7 +150,7 @@ const NewGroupFilterTable = () => {
                 placeholder="Select Department"
                 value={"id"}
                 description="name"
-                initialValue={initialValuefordepartment}
+                initialValue={initialValuefordepartment} 
                 isfield="true"
                 name="employee_id"
                 className="mb-0"
