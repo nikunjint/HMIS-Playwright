@@ -62,7 +62,7 @@ const Index = () => {
   return (
     <div >
       <div>
-        <Common.Header
+        <Common.Header  
           name="Go Back"
           mainmodule="Pathology"
           currentmodule={`${items[value - 1]?.label}`}

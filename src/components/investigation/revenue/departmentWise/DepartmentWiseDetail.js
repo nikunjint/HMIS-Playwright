@@ -1,9 +1,8 @@
 import React from 'react'
-import DepartmentWiseChart from './DepartmentWiseChart'
 
 function DepartmentWiseDetail() {
   return (
-    <div> <DepartmentWiseChart /></div>
+    <div> detail of departmentWise</div>
   )
 }
 

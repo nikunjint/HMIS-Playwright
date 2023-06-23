@@ -1,10 +1,9 @@
 import React from 'react'
-import PatientTypeChart from '../patientTypeDetail/PatientTypeChart'
 
 function patienttype_detail() {
   return (
     <div>
-      <PatientTypeChart />
+      detail of patient type
     </div>
   )
 }

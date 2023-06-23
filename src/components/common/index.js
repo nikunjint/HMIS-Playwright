@@ -623,7 +623,7 @@ const Header = (props) => {
               ),
             },
             {
-              title: <Link to={props.headmodule}>{props.headmodule}</Link>,
+              title: <Link to={`/${props.headmodule.toLowerCase()}`}>{props.headmodule}</Link>,
             },
             {
               title: <Link to={props.linkmainmodule}>{props.mainmodule}</Link>,
