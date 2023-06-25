@@ -901,3 +901,12 @@ padding: 8px !important;
   width: 100% !important;
   height: 300px !important;
 }
+.apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center{
+  display: flex !important;
+  justify-content: space-around !important;
+}
+.apexcharts-legend.apx-legend-position-right{
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

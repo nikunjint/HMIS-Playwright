@@ -1,49 +1,59 @@
-import { Col, Row } from "antd";
-import { Pie } from "react-chartjs-2";
-import { Chart, registerables } from "chart.js";
-import Common from "../../../common";
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
+import Common from '../../../common';
 
 const DepartmentWiseChart = () => {
-  Chart.register(...registerables);
-
-  const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-            '#2121EA',
-            '#d3d3d3',
-            '#6969FF',
-            '#2121EA',
-            '#4949B7',
-            '#6969FF',
-        ],
-        borderColor: [
-            '#2121EA',
-            '#d3d3d3',
-            '#6969FF',
-            '#2121EA',
-            '#4949B7',
-            '#6969FF',
-        ],
-        borderWidth: 1,
-      },
-    ],
+  const series = [185, 15, 40, 80];
+  
+  const options = {
+    chart: {
+      width: 380,
+      type: 'polarArea'
+    },
+    labels: [],
+    fill: {
+      opacity: 1,
+      colors: [ "#F2F2F2",'#2121EA', '#4949B7','#6969FF']
+    },
+    stroke: {
+      show: true,
+      width: 1,
+      colors: ["#F2F2F2",'#2121EA', '#4949B7', '#6969FF']
+    },
+    yaxis: {
+      show: false
+    },
+    dataLabels: {
+      enabled: true
+    },
+    plotOptions: {
+      polarArea: {
+        rings: {
+          strokeWidth: 0
+        },
+        spokes: {
+          strokeWidth: 0
+        },
+      }
+    },
+    theme: {
+      monochrome: {
+        enabled: true
+      }
+    }
   };
 
   return (
-    <Common.AntdCard title={"Department wise"} subtitle={"Count of collected sample in comparison with dispatched / completed sample"} bg={"#fff"}>
-      <Row>
-        <Col span={24}>
-        <div style={{ width: '300px', height: '300px', margin: "auto" }}>
-          <Pie data={data} options={{ legend: false }} />
-        </div>
-        </Col>
-      </Row>
+    <Common.AntdCard title="Patient Type" subtitle="Count of collected sample in comparison with dispatched / completed sample" bg="#fff" style={{ borderRadius: "20px" }}>
+    <div id="chart">
+      <ReactApexChart options={options} series={series} type="pie" height={310} />
+      
+    </div>
     </Common.AntdCard>
   );
 };
+
 export default DepartmentWiseChart;
+// export default DepartmentWiseChart;
+
 
